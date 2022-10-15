@@ -55,5 +55,10 @@ const questions = [
 const enterEmployee = function () {
   inquirer.prompt(questions).then((answers) => {
     answers.push(answers);
-  });
+    if (answers.additional) {
+      enterEmployee();
+    } else {
+      return answers;
+    }
+  }).then;
 };
