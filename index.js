@@ -60,5 +60,5 @@ const enterEmployee = function () {
     } else {
       return answers;
     }
-  }).then;
+  }).then
 };
