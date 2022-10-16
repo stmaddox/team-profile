@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+// const Engineer = require('./lib/Engineer');
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const teamDisplay = require("./src/mainPage");
+const fs = require('fs');
 
 const answers = [];
 
@@ -85,4 +86,17 @@ const enterEmployee = function () {
     }
     return empCards;
   })
+  .then(array => {
+    return teamDisplay(array);
+  })
+  .then(teamInfo => {
+    fs.writeFile('./assets/index.html', teamInfo, err => {
+      console.error(err);
+    })
+  })
+  .catch(err => {
+    console.log(err);
+  })
 };
+
+enterEmployee();
