@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const Engineer = require("./lib/Engineer");
-// const Engineer = require('./lib/Engineer');
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const teamDisplay = require("./src/mainPage");
