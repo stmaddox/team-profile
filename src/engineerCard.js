@@ -1,19 +1,19 @@
 const engineerCard = (name, id, email, github) => {
-
-    return `
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">${name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Engineer</h6>
+  return `
+    <div class="card p-0 m-3 col-lg-3 col-md-5">
+        <div class="card-title text-info bg-dark d-flex flex-column justify-content-center p-2">
+            <h5 class="">${name}</h5>
+            <h6 class="card-subtitle mb-2 text-light">Engineer</h6>
         </div>
-        <div>
-            <h4>ID: ${id}</h4>
-            <a href="mailto:${email}" class="card-link">${email}</a>
-            <a href="https://github.com/${github}" class="card-link">${github}</a>
+        <div class="card-body">
+            <ul class="list-unstyled"> 
+                <li>ID: ${id}</li>
+                <li><a href="mailto:${email}" class="card-link">${email}</a></li>
+                <li><a href="https://github.com/${github}" class="card-link">${github}</a></li>
+            </ul>   
         </div>
     </div>
-    
-    `
-}
+    `;
+};
 
 module.exports = engineerCard;

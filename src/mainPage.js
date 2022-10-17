@@ -1,5 +1,5 @@
-let teamDisplay = function(array) {
-    return `
+let teamDisplay = function (array) {
+  return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -10,18 +10,18 @@ let teamDisplay = function(array) {
         <title>Team</title>
     </head>
     <body>
-        <header class="text-info bg-dark d-flex justify-content-center align-items-center" style="height: 120px; width:100%">
+        <header class="text-info bg-dark d-flex justify-content-center align-items-center" style="height: 120px; width:100vw">
             <h1>Here Is Your Team!</h1> 
         </header>
-        <div class="d-flex justify-content-center align-items-center m-3">
-            <div id="card-container" class="d-flex justify-content-evenly align-items-center">
-                ${ array.join('') }
+        <div class="d-flex justify-content-around m-3 card-columns">
+            <div id="card-container" class="d-flex justify-content-around align-items-center">
+                ${array.join("")}
             </div>
         </div>
     </body>
     </html>
     
-    `
-}
+    `;
+};
 
 module.exports = teamDisplay;
