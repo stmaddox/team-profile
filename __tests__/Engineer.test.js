@@ -5,8 +5,8 @@ test("creates an Engineer object", () => {
     "Brad",
     1,
     "email@test.com",
+    "bradhub",
     "Engineer",
-    "bradhub"
   );
 
   expect(engineer.name).toBe("Brad");

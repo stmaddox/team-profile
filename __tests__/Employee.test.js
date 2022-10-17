@@ -9,5 +9,5 @@ test("creates an Employee object", () => {
   expect(employee.getName()).toBe("Brad");
   expect(employee.getId()).toBe(1);
   expect(employee.getEmail()).toBe("email@test.com");
-  expect(employee.getRole()).toBe("Engineer");
+  expect(employee.getRole()).toBe("Employee");
 });
