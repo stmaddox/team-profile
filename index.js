@@ -3,8 +3,13 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const teamDisplay = require("./src/mainPage");
+const managerCard = require('./src/managerCard');
+const engineerCard = require('./src/engineerCard');
+const internCard = require('./src/internCard');
+const mainPage = require('./src/mainPage');
 const fs = require('fs');
 
+const newCardArray = [];
 const employeeAnswers = [];
 
 const questions = [
@@ -71,22 +76,29 @@ const enterEmployee = function () {
       const engineer = new Engineer(name, id, email, github)
 
       let newCard = engineerCard(engineer.name, engineer.id, engineer.email, engineer.github)
-      newCard.push(newCard);
+      if(newCardArray.includes(newCard) === false) {
+        newCardArray.push(newCard);
+      }
+      
     } else if (employeeAnswers[i].role === "Intern") {
       const { name, id, email, school } = employeeAnswers[i]
       const intern = new Intern(name, id, email, school)
 
       let newCard = internCard(intern.name, intern.id, intern.email, intern.school)
-      newCard.push(newCard);
+      if(newCardArray.includes(newCard) === false) {
+        newCardArray.push(newCard);
+      }
     } else {
       const { name, id, email, office } = employeeAnswers[i]
       const manager = new Manager(name, id, email, office)
 
       let newCard = managerCard(manager.name, manager.id, manager.email, manager.office)
-      newCard.push(newCard);
+      if(newCardArray.includes(newCard) === false) {
+        newCardArray.push(newCard);
+      }
     }
   }
-    return empCards;
+    return newCardArray;
   })
   .then(array => {
     return teamDisplay(array);
