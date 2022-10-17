@@ -8,8 +8,8 @@ const engineerCard = (name, id, email, github) => {
         <div class="card-body">
             <ul class="list-unstyled"> 
                 <li>ID: ${id}</li>
-                <li><a href="mailto:${email}" class="card-link">${email}</a></li>
-                <li><a href="https://github.com/${github}" class="card-link">${github}</a></li>
+                <li>email: <a href="mailto:${email}" class="card-link">${email}</a></li>
+                <li>GitHub: <a href="https://github.com/${github}" class="card-link">${github}</a></li>
             </ul>   
         </div>
     </div>

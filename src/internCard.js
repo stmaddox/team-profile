@@ -8,7 +8,7 @@ const internCard = (name, id, email, school) => {
         <div class="card-body">
             <ul class="list-unstyled"> 
                 <li>ID: ${id}</li>
-                <li><a href="mailto:${email}" class="card-link">${email}</a></li>
+                <li>email: <a href="mailto:${email}" class="card-link">${email}</a></li>
                 <li>College: ${school}</li>
             </ul>   
         </div>
