@@ -5,7 +5,7 @@ const Manager = require("./lib/Manager");
 const teamDisplay = require("./src/mainPage");
 const fs = require('fs');
 
-const answers = [];
+const employeeAnswers = [];
 
 const questions = [
   {
@@ -15,12 +15,12 @@ const questions = [
   },
   {
     type: "input",
-    id: "id",
+    name: "id",
     message: "What is the employee's id number?",
   },
   {
     type: "input",
-    email: "email",
+    name: "email",
     message: "What is the employee's email address?",
   },
   {
@@ -56,33 +56,36 @@ const questions = [
 
 const enterEmployee = function () {
   inquirer.prompt(questions).then((answers) => {
-    answers.push(answers);
+    employeeAnswers.push(answers);
     if (answers.additional) {
       enterEmployee();
     } else {
-      return answers;
+      return employeeAnswers;
     }
   }).then(answers => {
+    console.log(answers);
     const empCards = []
-    if (answers[i].role === "Engineer") {
-      const { name, id, email, github } = answers[i]
-      const Engineer = new Engineer(name, id, email, github)
+    for(let i=0; i < employeeAnswers.length; i++) {
+    if (employeeAnswers[i].role === "Engineer") {
+      const { name, id, email, github } = employeeAnswers[i]
+      const engineer = new Engineer(name, id, email, github)
 
-      let newCard = engineerCard(Engineer.name, Engineer.id, Engineer.email, Engineer.github)
+      let newCard = engineerCard(engineer.name, engineer.id, engineer.email, engineer.github)
       newCard.push(newCard);
-    } else if (answers[i].role === "Intern") {
-      const { name, id, email, school } = answers[i]
-      const Intern = new Intern(name, id, email, school)
+    } else if (employeeAnswers[i].role === "Intern") {
+      const { name, id, email, school } = employeeAnswers[i]
+      const intern = new Intern(name, id, email, school)
 
-      let newCard = internCard(Intern.name, Intern.id, Intern.email, Intern.school)
+      let newCard = internCard(intern.name, intern.id, intern.email, intern.school)
       newCard.push(newCard);
     } else {
-      const { name, id, email, office } = answers[i]
-      const Manager = new Manager(name, id, email, office)
+      const { name, id, email, office } = employeeAnswers[i]
+      const manager = new Manager(name, id, email, office)
 
-      let newCard = managerCard(Manager.name, Manager.id, Manager.email, Manager.office)
+      let newCard = managerCard(manager.name, manager.id, manager.email, manager.office)
       newCard.push(newCard);
     }
+  }
     return empCards;
   })
   .then(array => {
